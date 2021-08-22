@@ -20,4 +20,4 @@ jobs:
           aws-access-key-id: ${{ secrets.BOOK_DEPLOY_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.BOOK_DEPLOY_SECRET_KEY }}
           aws-region: us-west-2
-      - run: aws s3 cp book.pdf s3://np-complete-books/pdf/C99.pdf
+      - run: aws s3 cp book.pdf s3://np-complete-books/pdf/C99.pdf --acl public-read
