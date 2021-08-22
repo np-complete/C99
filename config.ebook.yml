@@ -1,2 +1,3 @@
 inherit: ["config.common.yml"]
+titlefile: titlepage.tex
 texdocumentclass: ["review-jsbook", "media=ebook,paper=a5"]

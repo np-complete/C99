@@ -1,2 +1,3 @@
 inherit: ["config.common.yml"]
-texdocumentclass: ["review-jsbook", "media=paper,paper=a5"]
+pdfmaker:
+  coverimage: cover-a5.ai
