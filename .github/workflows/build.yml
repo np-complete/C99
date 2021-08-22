@@ -10,11 +10,15 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - uses: ./.github/actions/setup-review-pdf
+      - uses: masarakki/docker-alias@v2
+        with:
+          image: vvakame/review:5.2
+          commands: review-pdfmaker
+      - run: rm `bundle exec which review-pdfmaker`
       - run: bundle exec rake pdf
         env:
           REVIEW_CONFIG_FILE: config.ebook.yml
       - uses: actions/upload-artifact@v2
         with:
-          name: book.pdf
+          name: book
           path: book.pdf
