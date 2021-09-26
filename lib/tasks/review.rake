@@ -103,9 +103,15 @@ task epub: BOOK_EPUB
 
 IMAGES = FileList['images/**/*']
 OTHERS = ENV['REVIEW_DEPS'] || []
-SRC = FileList['./**/*.re', '*.rb'] + [CONFIG_FILE, CATALOG_FILE] + IMAGES + FileList[OTHERS]
+MDS = FileList['*.md']
+RES = MDS.ext('re')
+SRC = RES + [CONFIG_FILE, CATALOG_FILE] + IMAGES + FileList[OTHERS]
 SRC_EPUB = FileList['*.css']
 SRC_PDF = FileList['layouts/*.erb', 'sty/**/*.sty']
+
+rule '.re' => '.md' do |t|
+  sh "md2review --render-link-in-footnote #{t.source} > #{t.name}"
+end
 
 file BOOK_PDF => SRC + SRC_PDF do
   FileUtils.rm_rf([BOOK_PDF, BOOK, BOOK + '-pdf'])
@@ -143,4 +149,4 @@ end
 desc 'build with vivliostyle'
 task vivliostyle: 'vivliostyle:build'
 
-CLEAN.include([BOOK, BOOK_PDF, BOOK_EPUB, BOOK + '-pdf', BOOK + '-epub', WEBROOT, 'images/_review_math', 'images/_review_math_text', TEXTROOT, IDGXMLROOT])
+CLEAN.include([BOOK, BOOK_PDF, BOOK_EPUB, BOOK + '-pdf', BOOK + '-epub', WEBROOT, 'images/_review_math', 'images/_review_math_text', TEXTROOT, IDGXMLROOT, RES])
