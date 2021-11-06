@@ -2,7 +2,7 @@ PREDEF:
   - README.re
 CHAPS:
   - risk.re
-
+  - policy.re
 APPENDIX:
 
 POSTDEF:
