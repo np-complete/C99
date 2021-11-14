@@ -3,6 +3,8 @@ PREDEF:
 CHAPS:
   - risk.re
   - policy.re
+  - cases.re
+  - case-1.re
 APPENDIX:
 
 POSTDEF:
