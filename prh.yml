@@ -1,0 +1,22 @@
+version: 1
+rules:
+  - expected: 宅配便
+    patterns:
+      - 宅急便
+    specs:
+      - from: 宅急便
+        to: 宅配便
+  - expected: 配送$1
+    patterns:
+      - 配達
+      - 運送
+      - /宅配([^便])/
+    specs:
+      - from: 宅配業者
+        to: 配送業者
+      - from: 配達業者
+        to: 配送業者
+      - from: 運送業者
+        to: 配送業者
+      - from: 宅配便
+        to: 宅配便

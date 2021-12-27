@@ -22,3 +22,8 @@ jobs:
         with:
           name: book
           path: book.pdf
+  textlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: tsuyoshicho/action-textlint@v3
