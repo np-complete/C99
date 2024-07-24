@@ -14,11 +14,11 @@ GEM
       rouge
       rubyzip
       tty-logger
-    rexml (3.3.1)
+    rexml (3.3.2)
       strscan
     rouge (4.3.0)
     rubyzip (2.3.2)
-    strscan (1.0.3)
+    strscan (3.1.0)
     tty-color (0.6.0)
     tty-logger (0.6.0)
       pastel (~> 0.8)
